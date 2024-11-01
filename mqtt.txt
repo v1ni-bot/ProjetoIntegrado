@@ -1,0 +1,51 @@
+test.mosquitto.org 1883
+projeto_integrado/SENAI134/Cienciadedados/GrupoX
+
+
+var Thread = Java.type("java.lang.Thread");
+
+var topic = "projeto_integrado/SENAI134/Cienciadedados/GrupoX";
+var waitTime = 2000;
+var iterations = 100;
+
+// Função principal execute
+function execute(action) {
+    out("Teste de Script: " + action.getName());
+    for (var i = 0; i < iterations; i++) {
+        sendPayload();
+        Thread.sleep(waitTime);
+    }
+    action.setExitCode(0);
+    action.setResultText("done.");
+    out("Test Script: Done");
+    return action;
+}
+
+// Função para enviar payload
+function sendPayload() {
+    var temp = Math.round(Math.random() * 130);
+    var humid = Math.round(Math.random() * 100);
+    var pressure = Math.round(Math.random() * 1500);
+    var co2 = Math.round(Math.random() * 2000);
+    var ts = Date.now();
+
+    var IoT_Payload = {
+        "temperature": temp,
+        "humidity": humid,
+        "pressure": pressure,
+        "co2": co2,
+        "timestamps": ts
+    };
+
+    var payload = JSON.stringify(IoT_Payload);
+
+    mqttManager.publish(topic, payload);
+    out("Topic is: " + topic);
+    out("Payload sent: " + payload);
+
+}
+
+// Função de saída
+function out(message) {
+    output.print(message);
+}
