@@ -15,6 +15,10 @@ if st.button("Atualizar Dados"):   # o st apresenta diversas opções no dash, v
     df = conexao(query)
 
 # MENU LATERAL
+
+st.logo(image="Eco System Call logo.png", 
+        icon_image="Eco System Call logo.png")
+
 st.sidebar.header("Selecione a informação para gerar o gráfico") #título header e sub subheader
 
 #Opção para selecionar qual sera o eixo x e y

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333;
+            font-size: 24px;
+        }
+        p {
+            color: #555555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .cta {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+        }
+        .cta:hover {
+            background-color: #2980b9;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="email-container">
+        <h1>Olá, {{ nome_usuario }}!</h1>
+        <p>Você está recebendo este e-mail porque solicitou informações sobre {{ local_clima }}. Aqui estão os detalhes que você pediu:</p>
+        
+        <p><strong>Temperatura:</strong> {{ temperatura }}</p>
+        <p><strong>Pressão:</strong> {{ pressao }}</p>
+        <p><strong>Altitude:</strong> {{ altitude }}</p>
+        <p><strong>Umidade:</strong> {{ umidade }}</p>
+        <p><strong>CO2:</strong> {{ co2 }}</p>
+        <p><strong>Poeira:</strong> {{ poeira }}</p>
+        <p><strong>tempo_registro:</strong> {{ tempo_registro }}</p>
+        
+        <div class="footer">
+            <p>Se você não fez essa solicitação, por favor ignore este e-mail.</p>
+            <p>Equipe de Suporte - Eco System Call</p>
+        </div>
+    </div>
+
+</body>
+</html>
